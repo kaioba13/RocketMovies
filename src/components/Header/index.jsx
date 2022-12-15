@@ -14,7 +14,6 @@ export function Header() {
         <div>
           <strong>Kaio Fagundes</strong>
           <a href="/">Sair</a>
-          <a href="/">Sair</a>
         </div>
         <img src="https://github.com/kaioba13.png" alt="Foto do usuario"></img>
       </Profile>
