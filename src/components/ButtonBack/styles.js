@@ -4,7 +4,7 @@ export const Container = styled.button`
   background: none;
   border: none;
   color: ${({ theme }) => theme.COLORS.RED};
-  a {
+  > a {
     display: flex;
     gap: 1rem;
     color: ${({ theme }) => theme.COLORS.RED};
@@ -15,8 +15,9 @@ export const Container = styled.button`
     font-size: 1.6rem;
     line-height: 2.1rem;
     text-align: center;
+    align-items: center;
   }
-  svg {
+  > svg {
     color: ${({ theme }) => theme.COLORS.RED};
     align-self: center;
   }

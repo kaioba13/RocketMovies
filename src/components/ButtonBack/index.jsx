@@ -1,12 +1,12 @@
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Container } from "./styles";
 
-export function ButtonBack({ title }) {
+export function ButtonText({ title, ...rest }) {
   return (
-    <Container type="button">
+    <Container type="button" {...rest}>
       <a href="/">
-        {title}
         <AiOutlineArrowLeft />
+        {title}
       </a>
     </Container>
   );

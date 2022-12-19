@@ -1,10 +1,11 @@
 import { Tags } from "../Tags";
 import { Container } from "./styles";
 
-export function Section() {
+export function Section({ title, children }) {
   return (
     <Container>
-      <Tags title="Ficção Cientifica" />
+      {title}
+      {children}
     </Container>
   );
 }
