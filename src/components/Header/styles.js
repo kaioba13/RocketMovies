@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  grid-area: header;
-
   height: 1.05rem;
   width: 100%;
   padding: 5rem;
 
-  border-bottom: 0.1rem solid ${({ theme }) => theme.COLORS.BACKGROUND_700};
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
+  border-bottom: 0.1rem solid ${({ theme }) => theme.COLORS.BACKGROUND_700};
 `;
 
 export const Profile = styled.div`

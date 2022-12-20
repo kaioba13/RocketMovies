@@ -2,7 +2,7 @@ import { Container, Content, MovieInfo, UserInfo } from "./styles";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { CiClock2 } from "react-icons/ci";
 import { Header } from "../../components/Header";
-import { Tags } from "../../components/Tags";
+import { Tag } from "../../components/Tag";
 import { Section } from "../../components/Section";
 import { ButtonText } from "../../components/ButtonBack";
 import { Stars } from "../../components/Stars";
@@ -38,8 +38,8 @@ export function MoviesPreview() {
           </UserInfo>
 
           <Section>
-            <Tags title="Ficção cientifica" />
-            <Tags title="Comédia" />
+            <Tag title="Ficção cientifica" />
+            <Tag title="Comédia" />
           </Section>
           <p>
             Pragas nas colheitas fizeram a civilização humana regredir para uma
