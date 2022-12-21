@@ -4,10 +4,7 @@ import { Container } from "./styles";
 export function ButtonText({ title, ...rest }) {
   return (
     <Container type="button" {...rest}>
-      <a href="/">
-        <AiOutlineArrowLeft />
-        {title}
-      </a>
+      <a href="/">{title}</a>
     </Container>
   );
 }
