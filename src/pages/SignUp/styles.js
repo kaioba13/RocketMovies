@@ -59,8 +59,8 @@ export const Form = styled.form`
     margin-top: 4.2rem;
   }
 
-  svg:last-child {
-    display: none;
+  svg {
+    color: ${({ theme }) => theme.COLORS.RED};
   }
 `;
 

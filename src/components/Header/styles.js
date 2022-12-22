@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  height: 1.05rem;
   width: 100%;
-  padding: 5rem;
+  margin: 0 auto;
+  padding: 3rem;
 
   display: flex;
 
@@ -11,6 +11,12 @@ export const Container = styled.header`
   align-items: center;
 
   border-bottom: 0.1rem solid ${({ theme }) => theme.COLORS.BACKGROUND_700};
+
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    align-items: center;
+  }
 `;
 
 export const Profile = styled.div`
@@ -27,6 +33,7 @@ export const Profile = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 1.6rem;
+    text-align: left;
   }
 
   a {
@@ -38,25 +45,5 @@ export const Profile = styled.div`
     line-height: 1.8rem;
     text-align: right;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
-  }
-
-  > input {
-    width: 63rem;
-    height: 56rem;
-    padding: 1.9rem auto 1.9rem 2.4rem;
-    border-radius: 1rem;
-
-    background-color: ${({ theme }) => theme.BACKGROUND_700};
-    ::placeholder {
-      font-family: "Roboto Slab";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 1.4rem;
-      line-height: 1.8rem;
-      display: flex;
-      align-items: center;
-
-      color: ${({ theme }) => theme.COLORS.GRAY_100};
-    }
   }
 `;

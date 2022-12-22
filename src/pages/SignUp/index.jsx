@@ -4,21 +4,21 @@ import { FiLogIn, FiMail, FiLock } from "react-icons/fi";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonBack";
 
-export function SignIn() {
+export function SignUp() {
   return (
     <Container>
       <Form>
         <h1>RocketMovies</h1>
         <p>Aplicação para acompanhar tudo que assistir.</p>
 
-        <h2>Faça seu login</h2>
+        <h2>Crie sua conta</h2>
 
-        <Input placeholder="E-mail" type="text" icon={FiMail} />
-
+        <Input placeholder="Nome" type="text" />
+        <Input placeholder="E-mail" type="text" />
         <Input placeholder="password" type="password" />
 
-        <Button title="Entrar" />
-        <ButtonText title="Criar conta" />
+        <Button title="Cadastrar" />
+        <ButtonText title="Voltar para o login " />
       </Form>
       <Background />
     </Container>

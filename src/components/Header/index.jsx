@@ -1,11 +1,12 @@
 import { Container, Profile } from "./styles";
 import { Input } from "../Input";
+import Logo from "../../../assets/RocketMovies_logo.svg";
 
 export function Header() {
   return (
     <Container>
       <a href="/">
-        <img src="../../../public/RocketMovies_logo.svg"></img>
+        <img src={Logo}></img>
       </a>
 
       <Input placeholder="Pesquisar pelo título" />
