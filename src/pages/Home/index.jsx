@@ -12,7 +12,7 @@ export function Home() {
       <Section>
         <div className="Add-Movies">
           <h2>Meus Filmes</h2>
-          <ButtonAdd title="Adicionar Filme">
+          <ButtonAdd title="Adicionar filme" to="/createmovie">
             <AiOutlinePlus />
           </ButtonAdd>
         </div>

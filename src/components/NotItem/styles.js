@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  height: 5.6rem;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   background-color: ${({ theme, isNew }) =>
     isNew ? "transparent" : theme.COLORS.BACKGROUND_700};
@@ -11,7 +14,6 @@ export const Container = styled.div`
   border: ${({ theme, isNew }) =>
     isNew ? `1px dashed ${theme.COLORS.GRAY_100}` : "none"};
 
-  margin-bottom: 4rem;
   border-radius: 1rem;
   padding-right: 1.6rem;
 
@@ -21,8 +23,10 @@ export const Container = styled.div`
   }
 
   input {
-    height: 8.8rem;
+    height: 5.6rem;
     width: 100%;
+    align-items: center;
+
     padding: 1.2rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
     background: transparent;
@@ -31,5 +35,9 @@ export const Container = styled.div`
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_300};
     }
+  }
+
+  svg {
+    color: ${({ theme }) => theme.COLORS.RED};
   }
 `;

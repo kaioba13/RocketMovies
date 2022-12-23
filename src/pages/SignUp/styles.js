@@ -54,13 +54,17 @@ export const Form = styled.form`
     margin-bottom: 0.8rem;
   }
 
-  button:last-child {
+  a:last-child {
+    color: ${({ theme }) => theme.COLORS.RED};
+    font-size: clamp(1.4rem, 1.4rem + 0.2vw, 1.6rem);
+    font-family: "Roboto Slab";
     align-self: center;
     margin-top: 4.2rem;
   }
 
   svg {
     color: ${({ theme }) => theme.COLORS.RED};
+    margin-right: 0.8rem;
   }
 `;
 

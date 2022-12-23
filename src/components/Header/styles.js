@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.header`
   width: 100%;
@@ -19,9 +20,17 @@ export const Container = styled.header`
   }
 `;
 
-export const Profile = styled.div`
+export const Profile = styled(Link)`
   display: flex;
   align-items: center;
+
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+
+  color: ${({ theme }) => theme.COLORS.WHITE};
 
   > img {
     width: 5.6rem;

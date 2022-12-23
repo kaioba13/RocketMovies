@@ -1,12 +1,13 @@
-import { Container, Form } from "./styles";
+import { Container, Form, Submit } from "./styles";
 import { Header } from "../../components/Header";
 import { ButtonText } from "../../components/ButtonBack";
 import { Input } from "../../components/Input";
 import { TextArea } from "../../components/TextArea";
 import { NotItem } from "../../components/NotItem";
 import { Section } from "../../components/Section";
+import { Button } from "../../components/Button";
 
-export function CreateMvoie() {
+export function CreateMovie() {
   return (
     <Container>
       <Header />
@@ -25,10 +26,17 @@ export function CreateMvoie() {
 
           <TextArea placeholder="Observações" />
 
-          <Section title="Marcadores">
+          <h2>Marcadores</h2>
+
+          <section>
             <NotItem value="Comédia" />
-            <NotItem value="" isNew />
-          </Section>
+            <NotItem placeholder="Novo marcador" value="" isNew />
+          </section>
+
+          <Submit>
+            <Button title="Excluir filme" />
+            <Button title="Salvar alterações" />
+          </Submit>
         </Form>
       </main>
     </Container>

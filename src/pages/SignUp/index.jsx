@@ -1,8 +1,9 @@
 import { Container, Form, Background } from "./styles";
 import { Input } from "../../components/Input";
-import { FiLogIn, FiMail, FiLock } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonBack";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export function SignUp() {
   return (
@@ -18,7 +19,10 @@ export function SignUp() {
         <Input placeholder="password" type="password" />
 
         <Button title="Cadastrar" />
-        <ButtonText title="Voltar para o login " />
+        <Link to="/">
+          <AiOutlineArrowLeft />
+          Voltar para o login
+        </Link>
       </Form>
       <Background />
     </Container>

@@ -5,13 +5,11 @@ import { Container } from "./styles";
 export function NotItem({ isNew, value, onClick, ...rest }) {
   return (
     <Container isNew={isNew}>
-      <div>
-        <input type="text" value={value} readOnly={!isNew} {...rest} />
+      <input type="text" value={value} readOnly={!isNew} {...rest} />
 
-        <button type="button" onClick={onClick}>
-          {isNew ? <FiPlus /> : <FiX />}
-        </button>
-      </div>
+      <button type="button" onClick={onClick}>
+        {isNew ? <FiPlus /> : <FiX />}
+      </button>
     </Container>
   );
 }
