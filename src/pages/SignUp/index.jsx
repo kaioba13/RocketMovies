@@ -1,6 +1,6 @@
 import { Container, Form, Background } from "./styles";
 import { Input } from "../../components/Input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonBack";
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -13,6 +13,8 @@ export function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   function HandleSingUp() {
     if (!name || !email || !password) {
       return alert("Preencha todos os campos");
@@ -21,7 +23,8 @@ export function SignUp() {
     api
       .post("/users", { name, email, password })
       .then(() => {
-        alert("Usuário cadastrado com sucesso");
+        alert("Usuário cadastrado com sucesso!");
+        navigate("/");
       })
       .catch((error) => {
         if (error.response) {
@@ -51,7 +54,7 @@ export function SignUp() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
-          placeholder="password"
+          placeholder="Password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
