@@ -4,18 +4,14 @@ import { Container } from "./styles";
 
 export function MovieCard({ data, ...rest }) {
   return (
-    <Container data={data} {...rest}>
-      <div>
-        <h1>{data.title}</h1>
-        <Stars ratings={data.ratings} />
-      </div>
-
+    <Container {...rest}>
+      <h2>{data.title}</h2>
+      <Stars ratings={data.rating} />
       <p>{data.description}</p>
-
       {data.tags && (
         <footer>
           {data.tags.map((tag) => (
-            <Tag key={tag.id} title={tag.name} />
+            <Tag title={tag.name} key={tag.id} />
           ))}
         </footer>
       )}

@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const Form = styled.form`
   margin: 3.8rem auto;
   max-width: 113.7rem;
-  padding: 0 3rem;
+  padding: 0 3rem 6rem 3rem;
 
   .Wrapper {
     display: flex;
