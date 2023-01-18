@@ -2,14 +2,16 @@ import { useState } from "react";
 import { Container, Form, Avatar } from "./styles";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
-import { ButtonText } from "../../components/ButtonBack";
+import { ButtonText } from "../../components/ButtonText";
 import { FiCamera } from "react-icons/fi";
 import bgUser from "../../../assets/bg_user.svg";
 import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
 export function Profile() {
+  const navigate = useNavigate();
   const { user, updateProfile } = useAuth();
 
   const [name, setName] = useState(user.name);
@@ -25,14 +27,15 @@ export function Profile() {
   const [avatarFile, setAvatarFile] = useState(null);
 
   async function handleUpdate() {
-    const user = {
+    const updated = {
       name,
       email,
       password: passwordNew,
       old_password: passwordOld,
     };
 
-    await updateProfile({ user, avatarFile });
+    const userUpdated = Object.assign(user, updated);
+    await updateProfile({ user: userUpdated, avatarFile });
   }
 
   function handleChangeAvatar(event) {
@@ -46,7 +49,7 @@ export function Profile() {
   return (
     <Container>
       <header>
-        <ButtonText title="Voltar" />
+        <ButtonText title="Voltar" onClick={navigate(-1)} />
       </header>
 
       <Form>

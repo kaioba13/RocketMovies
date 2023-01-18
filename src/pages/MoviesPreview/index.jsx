@@ -4,77 +4,96 @@ import { CiClock2 } from "react-icons/ci";
 import { Header } from "../../components/Header";
 import { Tag } from "../../components/Tag";
 import { Section } from "../../components/Section";
-import { ButtonText } from "../../components/ButtonBack";
+import { ButtonText } from "../../components/ButtonText";
 import { Stars } from "../../components/Stars";
+import { api } from "../../services/api";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import bgUser from "../../../assets/bg_user.svg";
+import { useAuth } from "../../hooks/auth";
+import { format } from "date-fns";
+import ptBR from "date-fns/esm/locale/pt-BR/index.js";
+
 export function MoviesPreview() {
+  const navigate = useNavigate();
+
+  const { user } = useAuth();
+
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : bgUser;
+  const [data, setData] = useState(null);
+
+  const params = useParams();
+
+  useEffect(() => {
+    async function fetchMovies() {
+      const response = await api.get(`/notes/${params.id}`);
+      setData(response.data);
+    }
+    fetchMovies();
+  }, []);
+
+  async function handleRemove() {
+    const confirm = window.confirm("Deseja realmente remover a nota ?");
+    if (confirm) {
+      await api.delete(`/notes/${params.id}`);
+      navigate(-1);
+    }
+  }
+
   return (
     <Container>
       <Header />
 
-      <main>
-        <Content>
-          <ButtonText title="Voltar">
-            <AiOutlineArrowLeft />
-          </ButtonText>
-
-          <MovieInfo>
-            <h1>Interestelar</h1>
-            <Stars ratings="4" />
-          </MovieInfo>
-
-          <UserInfo>
-            <div>
-              <img
-                src="https://github.com/kaioba13.png"
-                alt="Foto do usuario"
-              ></img>
-              <span>Por Kaio Fagundes</span>
+      {data && (
+        <main>
+          <Content>
+            <div className="actions">
+              <ButtonText title="Voltar">
+                <AiOutlineArrowLeft />
+              </ButtonText>
+              <button onClick={handleRemove} className="deleteNote">
+                Excluir nota
+              </button>
             </div>
 
-            <div>
-              <CiClock2 />
-              <span>19/12/2022 às 13:07</span>
-            </div>
-          </UserInfo>
+            <MovieInfo>
+              <h1>{data.title}</h1>
+              <Stars ratings={data.rating} />
+            </MovieInfo>
 
-          <Section>
-            <Tag title="Ficção cientifica" />
-            <Tag title="Comédia" />
-          </Section>
-          <p>
-            Pragas nas colheitas fizeram a civilização humana regredir para uma
-            sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto
-            da NASA, tem uma fazenda com sua família. Murphy, a filha de dez
-            anos de Cooper, acredita que seu quarto está assombrado por um
-            fantasma que tenta se comunicar com ela. Pai e filha descobrem que o
-            "fantasma" é uma inteligência desconhecida que está enviando
-            mensagens codificadas através de radiação gravitacional, deixando
-            coordenadas em binário que os levam até uma instalação secreta da
-            NASA liderada pelo professor John Brand. O cientista revela que um
-            buraco de minhoca foi aberto perto de Saturno e que ele leva a
-            planetas que podem oferecer condições de sobrevivência para a
-            espécie humana. As "missões Lázaro" enviadas anos antes
-            identificaram três planetas potencialmente habitáveis orbitando o
-            buraco negro Gargântua: Miller, Edmunds e Mann – nomeados em
-            homenagem aos astronautas que os pesquisaram. Brand recruta Cooper
-            para pilotar a nave espacial Endurance e recuperar os dados dos
-            astronautas; se um dos planetas se mostrar habitável, a humanidade
-            irá seguir para ele na instalação da NASA, que é na realidade uma
-            enorme estação espacial. A partida de Cooper devasta Murphy. Além de
-            Cooper, a tripulação da Endurance é formada pela bióloga Amelia,
-            filha de Brand; o cientista Romilly, o físico planetário Doyle, além
-            dos robôs TARS e CASE. Eles entram no buraco de minhoca e se dirigem
-            a Miller, porém descobrem que o planeta possui enorme dilatação
-            gravitacional temporal por estar tão perto de Gargântua: cada hora
-            na superfície equivale a sete anos na Terra. Eles entram em Miller e
-            descobrem que é inóspito já que é coberto por um oceano raso e
-            agitado por ondas enormes. Uma onda atinge a tripulação enquanto
-            Amelia tenta recuperar os dados de Miller, matando Doyle e atrasando
-            a partida. Ao voltarem para a Endurance, Cooper e Amelia descobrem
-            que 23 anos se passaram.
-          </p>
-        </Content>
-      </main>
+            <UserInfo>
+              <div>
+                <img src={avatarUrl}></img>
+                <span>{user.name}</span>
+              </div>
+
+              <div>
+                <CiClock2 />
+                <span>
+                  {format(
+                    new Date(data.created_at),
+                    "dd'/'MM'/'yy 'às' HH':'mm",
+                    {
+                      locale: ptBR,
+                    }
+                  )}
+                </span>
+              </div>
+            </UserInfo>
+
+            <Section>
+              {data.tags &&
+                data.tags.map((tag) => (
+                  <Tag key={String(tag.id)} title={tag.name} />
+                ))}
+            </Section>
+            <p>{data.description}</p>
+          </Content>
+        </main>
+      )}
     </Container>
   );
 }

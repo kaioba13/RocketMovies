@@ -32,6 +32,11 @@ export function Home() {
 
     fetchMovieNotes();
   }, [search]);
+
+  function handleDetail(id) {
+    navigate(`/moviespreview/${id}`);
+  }
+
   return (
     <Container>
       <header>
@@ -66,7 +71,13 @@ export function Home() {
         <main>
           <section>
             {movies.map((movie) => (
-              <MovieCard key={String(movie.id)} data={movie} />
+              <MovieCard
+                key={String(movie.id)}
+                data={movie}
+                onClick={() => {
+                  handleDetail(movie.id);
+                }}
+              />
             ))}
           </section>
         </main>

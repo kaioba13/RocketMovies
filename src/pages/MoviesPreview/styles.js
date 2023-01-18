@@ -41,6 +41,23 @@ export const Content = styled.div`
   max-width: 120rem;
   margin: 0 auto;
   padding: 2rem;
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .deleteNote {
+    border: none;
+    background: transparent;
+    color: ${({ theme }) => theme.COLORS.RED};
+    font-size: clamp(1.4rem, 1.4rem + 0.2vw, 1.6rem);
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+  }
 `;
 
 export const MovieInfo = styled.div`

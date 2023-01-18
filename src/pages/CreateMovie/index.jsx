@@ -1,6 +1,6 @@
 import { Container, Form, Submit } from "./styles";
 import { Header } from "../../components/Header";
-import { ButtonText } from "../../components/ButtonBack";
+import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { TextArea } from "../../components/TextArea";
 import { NotItem } from "../../components/NotItem";
