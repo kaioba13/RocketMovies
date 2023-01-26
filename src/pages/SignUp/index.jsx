@@ -2,7 +2,6 @@ import { Container, Form, Background } from "./styles";
 import { Input } from "../../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
-import { ButtonText } from "../../components/ButtonText";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useState } from "react";
 
