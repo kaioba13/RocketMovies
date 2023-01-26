@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Container, Form, Avatar } from "./styles";
-import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { ButtonText } from "../../components/ButtonText";
 import { FiCamera } from "react-icons/fi";
