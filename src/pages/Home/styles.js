@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
   .Add-Movies {
     display: flex;
-    flex-wrap: wrap;
+
     gap: 2rem;
     justify-content: space-between;
     align-items: center;
