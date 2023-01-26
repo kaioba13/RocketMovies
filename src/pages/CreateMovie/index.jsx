@@ -40,7 +40,7 @@ export function CreateMovie() {
 
     if (newTag) {
       return alert(
-        "Você deixous uma tag no campo para adicionar, mas não adicionou. Clique para adicionar ou deixe o campo vazio!"
+        "Você deixou uma tag no campo para adicionar, mas não adicionou. Clique para adicionar ou deixe o campo vazio!"
       );
     }
 
